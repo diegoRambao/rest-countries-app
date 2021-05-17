@@ -1,7 +1,15 @@
+import { Nav, NavFlex, Anchor } from './style'
+import { ButtonDark } from '../ButtonDak'
+
 export function Navbar() {
    return (
-      <div className="container">
-         <h1>Navbar</h1>
-      </div>
+      <Nav>
+         <div className="container">
+            <NavFlex>
+               <Anchor to="/">Where in the world?</Anchor>
+               <ButtonDark />
+            </NavFlex>
+         </div>
+      </Nav>
    )
 }
