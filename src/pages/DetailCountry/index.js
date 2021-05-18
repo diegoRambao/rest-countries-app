@@ -1,8 +1,17 @@
 import { Container, Image, ContainerDescription, ContainerHeader, Anchor, ListInfo } from './style'
 import { ArrowLeft } from 'react-feather'
 import { ListBorder } from '../../components/ListBorder'
+import { useParams } from 'react-router'
+import { useSelector } from 'react-redux'
 
 export function DetailCountryPage() {
+   const { name } = useParams()
+   console.log(name)
+   const country = useSelector(({ countries }) => {
+      console.log(countries)
+      return countries.find((country) => country.name === name)
+   })
+
    return (
       <div className="container">
          <ContainerHeader>
@@ -13,33 +22,33 @@ export function DetailCountryPage() {
          </ContainerHeader>
 
          <Container>
-            <Image src="https://restcountries.eu/data/bra.svg" />
+            <Image src={country.flag} alt={country.name} />
             <ContainerDescription>
-               <h2>Brazil</h2>
+               <h2>{country.name}</h2>
                <ListInfo>
                   <div>
                      <ul>
                         <li>
-                           <strong>Native Name: </strong>dkjsk
+                           <strong>Native Name: </strong> {country.nativeName}
                         </li>
                         <li>
-                           <strong>Poulation: </strong>dkjsk
+                           <strong>Poulation: </strong> {country.population}
                         </li>
                         <li>
-                           <strong>Region: </strong>dkjsk
+                           <strong>Region: </strong> {country.region}
                         </li>
                         <li>
-                           <strong>SubRegion </strong>dkjsk
+                           <strong>SubRegion </strong> {country.subregion}
                         </li>
                         <li>
-                           <strong>Capital </strong>dkjsk
+                           <strong>Capital </strong> {country.capital}
                         </li>
                      </ul>
                   </div>
                   <div>
                      <ul>
                         <li>
-                           <strong>Top Level Domain: </strong>dkjsk
+                           <strong>Top Level Domain: </strong> {country.topLevelDomain}
                         </li>
                         <li>
                            <strong>Currencies: </strong>dkjsk
@@ -50,7 +59,7 @@ export function DetailCountryPage() {
                      </ul>
                   </div>
                </ListInfo>
-               <ListBorder />
+               <ListBorder borders={country.borders} />
             </ContainerDescription>
          </Container>
       </div>

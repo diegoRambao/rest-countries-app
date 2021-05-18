@@ -1,21 +1,21 @@
 import { Anchor, ContainerCard, Image, CardBody, Title, List, Item } from './style'
 
-export function Card() {
+export function Card({ country }) {
    return (
-      <Anchor to="detail">
+      <Anchor to={`detail/${country.name}`}>
          <ContainerCard>
-            <Image src="https://restcountries.eu/data/bra.svg" />
+            <Image src={country.flag} alt={country.name} />
             <CardBody>
-               <Title>Brazil</Title>
+               <Title>{country.name}</Title>
                <List>
                   <Item>
-                     <strong>Poulation: </strong> 206.135.893
+                     <strong>Poulation: </strong> {country.population}
                   </Item>
                   <Item>
-                     <strong>Region: </strong> Americas
+                     <strong>Region: </strong> {country.region}
                   </Item>
                   <Item>
-                     <strong>Capital: </strong> Brasilia
+                     <strong>Capital: </strong> {country.capital}
                   </Item>
                </List>
             </CardBody>

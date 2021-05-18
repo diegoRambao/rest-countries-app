@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { Moon } from 'react-feather'
+import { useDispatch } from 'react-redux'
+import { changeAction } from '../../store/reducers/themeReducers'
 
 const Button = styled.button`
    border: none;
@@ -16,8 +18,9 @@ const Button = styled.button`
    }
 `
 export function ButtonDark() {
+   const dispatch = useDispatch()
    return (
-      <Button>
+      <Button onClick={() => dispatch(changeAction())}>
          <Moon />
          Dark Mode
       </Button>

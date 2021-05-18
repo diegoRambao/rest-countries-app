@@ -1,12 +1,12 @@
 import { Container, ItemBorder } from './style'
 
-export function ListBorder() {
+export function ListBorder({ borders }) {
    return (
       <Container>
          <strong>Border Countries: </strong>
-         <ItemBorder>France</ItemBorder>
-         <ItemBorder>France</ItemBorder>
-         <ItemBorder>France</ItemBorder>
+         {borders.map((border) => (
+            <ItemBorder key={border}>{border}</ItemBorder>
+         ))}
       </Container>
    )
 }
