@@ -1,14 +1,16 @@
 import { Nav, NavFlex, Anchor } from './style'
 import { ButtonDark } from '../ButtonDak'
-import { useSelector } from 'react-redux'
+import { useTheme } from '../../hooks/useTheme'
 
 export function Navbar() {
-   const theme = useSelector((state) => state.theme)
+   const { theme } = useTheme()
    return (
-      <Nav>
+      <Nav theme={theme}>
          <div className="container">
             <NavFlex>
-               <Anchor to="/">Where in the world?</Anchor>
+               <Anchor to="/" theme={theme}>
+                  Where in the world?
+               </Anchor>
                <ButtonDark />
             </NavFlex>
          </div>

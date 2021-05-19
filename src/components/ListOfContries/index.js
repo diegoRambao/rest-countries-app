@@ -1,15 +1,9 @@
-import { useEffect } from 'react'
 import { Card } from '../Card'
 import { ContainerList } from './style'
-import { actionCountryInit } from '../../store/reducers/countryReducers'
-import { useDispatch, useSelector } from 'react-redux'
+import { useContries } from '../../hooks/useCountries'
 
 export function ListOfContries() {
-   const dispatch = useDispatch()
-   const countries = useSelector((state) => state.countries)
-   useEffect(() => {
-      dispatch(actionCountryInit())
-   }, [dispatch])
+   const { countries } = useContries()
    return (
       <div className="container">
          <ContainerList>

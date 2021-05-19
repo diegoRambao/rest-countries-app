@@ -9,7 +9,7 @@ export const Anchor = styled(Link)`
    box-shadow: 0px 0px 18px -4px rgba(0, 0, 0, 0.1);
    border: none;
    outline: none;
-   background: #fff;
+   background: ${(props) => (props.theme === true ? 'hsl(209, 23%, 22%)' : '#fff')};
    border-radius: 5px;
    font-size: 0.875em;
    display: flex;
@@ -18,10 +18,11 @@ export const Anchor = styled(Link)`
    padding: 5px 20px;
    width: fit-content;
    text-decoration: none;
-   color: hsl(200, 15%, 8%);
+   color: ${(props) => (props.theme === true ? 'hsl(0, 0%, 98%)' : 'hsl(200, 15%, 8%)')}; ;
 `
 
 export const Container = styled.div`
+   color: ${(props) => (props.theme === true ? 'hsl(0, 0%, 98%)' : 'hsl(200, 15%, 8%)')};
    display: flex;
    margin-top: 70px;
    gap: 60px;

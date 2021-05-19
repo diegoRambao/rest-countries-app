@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { Moon } from 'react-feather'
-import { useDispatch } from 'react-redux'
-import { changeAction } from '../../store/reducers/themeReducers'
+import { useTheme } from '../../hooks/useTheme'
 
 const Button = styled.button`
    border: none;
@@ -12,15 +11,15 @@ const Button = styled.button`
    gap: 10px;
    font-weight: 600;
    font-size: 14px;
-   color: hsl(200, 15%, 8%);
+   color: ${(props) => (props.theme === true ? 'hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)')};
    &:hover {
       cursor: pointer;
    }
 `
 export function ButtonDark() {
-   const dispatch = useDispatch()
+   const { changeTheme, theme } = useTheme()
    return (
-      <Button onClick={() => dispatch(changeAction())}>
+      <Button onClick={() => changeTheme()} theme={theme}>
          <Moon />
          Dark Mode
       </Button>

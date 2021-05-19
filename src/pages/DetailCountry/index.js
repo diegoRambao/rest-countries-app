@@ -2,26 +2,24 @@ import { Container, Image, ContainerDescription, ContainerHeader, Anchor, ListIn
 import { ArrowLeft } from 'react-feather'
 import { ListBorder } from '../../components/ListBorder'
 import { useParams } from 'react-router'
-import { useSelector } from 'react-redux'
+import { useContries } from '../../hooks/useCountries'
+import { useTheme } from '../../hooks/useTheme'
 
 export function DetailCountryPage() {
+   const { theme } = useTheme()
    const { name } = useParams()
-   console.log(name)
-   const country = useSelector(({ countries }) => {
-      console.log(countries)
-      return countries.find((country) => country.name === name)
-   })
-
+   const { countries } = useContries()
+   const country = countries.find((country) => country.name === name)
    return (
       <div className="container">
          <ContainerHeader>
-            <Anchor to="/">
+            <Anchor to="/" theme={theme}>
                <ArrowLeft />
                Back
             </Anchor>
          </ContainerHeader>
 
-         <Container>
+         <Container theme={theme}>
             <Image src={country.flag} alt={country.name} />
             <ContainerDescription>
                <h2>{country.name}</h2>

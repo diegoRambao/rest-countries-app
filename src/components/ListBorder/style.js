@@ -9,7 +9,8 @@ export const Container = styled.div`
 
 export const ItemBorder = styled.div`
    padding: 5px 20px;
-   background-color: #fff;
-   border: 1px solid #cecece;
+   background: ${(props) => (props.theme === true ? 'hsl(209, 23%, 22%)' : '#fff')};
+   color: ${(props) => (props.theme === true ? 'hsl(0, 0%, 98%)' : 'hsl(200, 15%, 8%)')};
+   border: ${(props) => (props.theme === true ? 'none' : '1px solid #cecece')};
    border-radius: 5px;
 `

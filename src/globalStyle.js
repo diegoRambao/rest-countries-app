@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Nunito Sans', sans-serif;
         font-size: 16px;
+        background: ${(props) => (props.theme === true ? 'hsl(207, 26%, 17%)' : '#fff')}
     }
 
     .container {
