@@ -11,7 +11,7 @@ export const useTheme = () => {
    }
 
    return {
-      theme,
+      theme: theme ? 1 : undefined,
       changeTheme,
    }
 }

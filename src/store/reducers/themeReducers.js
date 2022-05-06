@@ -1,15 +1,10 @@
-const initialState = window.localStorage.getItem('theme') === 'true' ? true : false
+const initialState =
+    window.localStorage.getItem("theme") === "true";
 
-export const changeAction = (theme) => {
-   return {
-      type: '@theme/change',
-      payload: theme,
-   }
-}
+export const changeAction = (theme) => ({
+    type: "@theme/change",
+    payload: theme,
+});
 
-export function themeReducer(state = initialState, action) {
-   if (action.type === '@theme/change') {
-      return !action.payload
-   }
-   return state
-}
+export const themeReducer = (state = initialState, action) =>
+    action.type === "@theme/change" ? !action.payload : state;

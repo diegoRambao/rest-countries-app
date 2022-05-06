@@ -4,12 +4,8 @@ const ACTION_TYPES = {
    init: '@countries/init',
 }
 
-export const countryReducer = (state = [], action) => {
-   if (action.type === ACTION_TYPES.init) {
-      return action.payload
-   }
-   return state
-}
+export const countryReducer = (state = [], action) =>
+    action.type === ACTION_TYPES.init ?  action.payload : state
 
 export const actionCountryInit = () => {
    return async (dispatch) => {
